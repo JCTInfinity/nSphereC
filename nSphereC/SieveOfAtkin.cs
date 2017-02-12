@@ -94,8 +94,8 @@ namespace nSphereC
             var soa = new SieveOfAtkin(limit);
             soa.firstpass();
             soa.sieve();
-            var r = new List<uint>() { 2, 3, 5, 7 };
-            r.AddRange(soa.is_prime.Where(p => p.Value && p.Key > 7).Select(p => p.Key));
+            Primes.pCache = new List<uint>() { 2, 3, 5, 7 };
+            Primes.pCache.AddRange(soa.is_prime.Where(p => p.Value && p.Key > 7).Select(p => p.Key));
             timer.Stop();
         }
     }
