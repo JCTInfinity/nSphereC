@@ -79,10 +79,10 @@ namespace nSphereC
                 uint nsqr = n * n;
                 if(is_prime.ContainsKey(n) && is_prime[n])
                 {
-                    for(uint k = 1; k <= _limit; k++)
+                    for(uint k = 1; nsqr * k <= _limit; k++)
                     {
                         if (!s.Contains(k % 60)) continue;
-                        if (is_prime.ContainsKey(k)) is_prime[k] = false;
+                        if (is_prime.ContainsKey(nsqr * k)) is_prime[nsqr * k] = false;
                     }
                 }
 
