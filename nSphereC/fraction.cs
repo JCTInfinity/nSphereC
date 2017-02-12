@@ -113,8 +113,15 @@ namespace nSphereC
         {
             return (new Fraction(left._num * right._num, left._den * right._den)).SimplestForm;
         }
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj is Fraction) return this == (Fraction)obj;
+        //    else if (obj is uint) return this == (uint)obj;
+        //    else return base.Equals(obj);
+        //}
         public static Boolean operator ==(Fraction left, Fraction right)
         {
+            if ((object)left == null || (object)right == null) return (object)left == null && (object)right == null;
             return left.SimplestForm.Numerator == right.SimplestForm.Numerator && 
                 left.SimplestForm.Denominator == right.SimplestForm.Denominator;
         }
@@ -122,14 +129,14 @@ namespace nSphereC
         {
             return !(left == right);
         }
-        public static Boolean operator ==(Fraction left, uint right)
+        public static Boolean operator ==(Fraction left, int right)
         {
             if (left.Denominator > left.Numerator) return false;
             BigInteger iForm = left.Numerator % left.Denominator;
             if (iForm != 0) return false;
-            return iForm == right;
+            return left.Numerator / left.Denominator == right;
         }
-        public static Boolean operator !=(Fraction left, uint right)
+        public static Boolean operator !=(Fraction left, int right)
         {
             return !(left == right);
         }

@@ -18,8 +18,8 @@ namespace nSphereC
             string input;
             ushort dimensions;
             Console.WriteLine("Enter a number of dimensions(integer >= 0)");
-            input = Console.ReadLine;
-            if (!ushort.TryParse(input, dimensions))
+            input = Console.ReadLine();
+            if (!ushort.TryParse(input, out dimensions))
             {
                 Console.WriteLine("Invalid input. Input must be an integer from 0 to " + ushort.MaxValue);
                 return true;
@@ -58,7 +58,7 @@ namespace nSphereC
                 }
             }
             WriteFormulaLine(track, s.Dimensions, s);
-            Console.Writeline("A unit (r=1) " + s.Dimensions + "-sphere has a " + s.Dimensions + "-volume of " + 
+            Console.WriteLine("A unit (r=1) " + s.Dimensions + "-sphere has a " + s.Dimensions + "-volume of " + 
                 s.nVolume(1) + " (e^" + s.nVolumeExp(1) + ")\n\nIf you would like to calculate the " + s.Dimensions + 
                 "-volume for a different value of r, enter a floating-point value to use.\n" +
                 "To exit, type Exit. To start over, type New. To display the full fractional form, type Fraction.");
@@ -66,7 +66,7 @@ namespace nSphereC
             {
                 input = Console.ReadLine();
                 double r;
-                if(double.TryParse(input, r))
+                if(double.TryParse(input, out r))
                 {
                     Console.WriteLine("With r=" + r + " the " + s.Dimensions + "-volume = " + s.nVolume(r) + " (e^" + s.nVolumeExp(r) +
                         ")\nCalculate with another value, Exit, or New?");

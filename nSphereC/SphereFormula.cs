@@ -36,7 +36,7 @@ namespace nSphereC
             {
                 fraction = sCache.fraction;
                 πs = (ushort)(d / 2);
-                if (d % 2 == 0) fraction *= 2;
+                if (d % 2 == 1) fraction *= 2;
                 f(d);
             }
         }
